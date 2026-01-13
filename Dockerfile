@@ -27,7 +27,7 @@ COPY --from=build /app/dist /usr/share/nginx/html
 # Copy nginx configuration (optional - creates a custom config)
 RUN echo 'server { \
     listen 80; \
-    server_name localhost; \
+    server_name cetinkayavinc.com www.cetinkayavinc.com; \
     \
     location / { \
         root /usr/share/nginx/html; \

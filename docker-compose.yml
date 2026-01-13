@@ -8,28 +8,12 @@ services:
     ports:
       - "80:80"
       - "443:443"
-      volumes:
+    volumes:
       - /etc/letsencrypt:/etc/letsencrypt:ro
       - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
     restart: unless-stopped
     networks:
       - ecommerce-network
-
-  ecommerce-dev:
-    build:
-      context: .
-      dockerfile: Dockerfile.dev
-    ports:
-      - "5173:5173"
-    volumes:
-      - .:/app
-      - /app/node_modules
-    environment:
-      - NODE_ENV=development
-    networks:
-      - ecommerce-network
-    profiles:
-      - dev
 
 networks:
   ecommerce-network:
